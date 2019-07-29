@@ -1,0 +1,23 @@
+---
+name: ShowCard
+menu: Components
+---
+
+import { Props, Playground } from "docz";
+import Card from "./card";
+import GlobalStyles from "../app/GlobalStyles";
+
+<GlobalStyles />
+
+<Props of={Card} />
+
+# Save these products
+
+<Playground>
+  <Card
+    description="Description"
+    items={["2 bananas", "4 tomatoes", "salat"]}
+    location="Fruchtallee 8a, Hamburg"
+    time="Today 8-10pm"
+  />
+</Playground>
