@@ -17,10 +17,7 @@ const StyledLocation = styled.div`
   margin-bottom: 5px;
 `;
 const StyledTime = styled.div``;
-const StyledDescriptionItem = styled.li`
-  justify-content: flex-start;
-  display: flex;
-`;
+const StyledDescriptionItem = styled.li``;
 
 const StyledDescription = styled.div`
   display: flex;
@@ -37,7 +34,9 @@ const StyledImage = styled.img`
 
 const StyledIcon = styled.img`
   margin-right: 5px;
+  margin-bottom: 0;
   width: 18px;
+  height: 18px;
 `;
 
 function Card({ title, items, location, time, image }) {
