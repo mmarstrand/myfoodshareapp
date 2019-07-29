@@ -1,44 +1,73 @@
 import React from "react";
 import styled from "styled-components";
-import { Props } from "docz";
 
 const StyledCard = styled.div`
   border: 2px solid #163a5f;
   padding: 18px;
   border-radius: 20px;
   position: relative;
+  margin: 20px;
 `;
 
-const StyledDescription = styled.div``;
-const StyledLocation = styled.div``;
+const StyledTitle = styled.div`
+  font-weight: bold;
+`;
+
+const StyledLocation = styled.div`
+  margin-bottom: 5px;
+`;
 const StyledTime = styled.div``;
-const StyledDescriptionItem = styled.li``;
+const StyledDescriptionItem = styled.li`
+  justify-content: flex-start;
+  display: flex;
+`;
+
+const StyledDescription = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+`;
 
 const StyledImage = styled.img`
   align-items: right;
   width: 120px;
   display: flex;
-  flex-direction: row;
   justify-content: flex-end;
 `;
 
-function Card({ description, items, location, time }) {
-  return (
-    <StyledCard>
-      <StyledDescription>{description}</StyledDescription>
-      <ul>
-        {items.map(item => (
-          <StyledDescriptionItem>{item}</StyledDescriptionItem>
-        ))}
-        <StyledImage
-          src="https://www.cdc.gov/foodsafety/images/comms/GettyImages-898001644-300px.png"
-          alt="Food image"
-        />
-      </ul>
+const StyledIcon = styled.img`
+  margin-right: 5px;
+  width: 18px;
+`;
 
-      <StyledLocation>Pick-up location: {location}</StyledLocation>
-      <StyledTime>Pick-up time: {time}</StyledTime>
-    </StyledCard>
+function Card({ title, items, location, time, image }) {
+  return (
+    <>
+      <StyledCard>
+        <StyledTitle>
+          <StyledIcon src="/info.svg" />
+          {title}
+        </StyledTitle>
+        <StyledDescription>
+          <ul>
+            {items.map(item => (
+              <StyledDescriptionItem>{item}</StyledDescriptionItem>
+            ))}
+          </ul>
+          <StyledImage src="/vegetables.jpg" alt="Food image">
+            {image}
+          </StyledImage>
+        </StyledDescription>
+        <StyledLocation>
+          <StyledIcon src="/pin.svg" />
+          Pick-up location: {location}
+        </StyledLocation>
+        <StyledTime>
+          <StyledIcon src="/clock.svg" />
+          Pick-up time: {time}
+        </StyledTime>
+      </StyledCard>
+    </>
   );
 }
 
