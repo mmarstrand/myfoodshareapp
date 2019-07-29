@@ -6,12 +6,13 @@ const StyledHeader = styled.div`
   background: #21aba5;
   height: 50px;
   display: flex;
-  justify-items: center;
+  align-items: center;
   justify-content: center;
 `;
 
 const StyledHeadline = styled.h1`
   color: white;
+  margin: 0;
 `;
 
 const rotate = keyframes`
