@@ -1,0 +1,16 @@
+[
+  {
+    "_id": 1,
+    "title": "Giving away due to holiday",
+    "items": ["2 bananas", "salad", "jordbær"],
+    "location": "Fruchtallee 8a, Hamburg",
+    "time": "5-10pm"
+  },
+  {
+    "_id": 2,
+    "title": "Bought too much",
+    "items": ["2 bananas", "salad", "jordbær"],
+    "location": "Fruchtallee 8a, Hamburg",
+    "time": "5-10pm"
+  }
+]
