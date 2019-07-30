@@ -3,7 +3,7 @@ import GlobalStyles from "./GlobalStyles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Cards from "../pages/Cards";
 import Header from "../components/Header";
-import CreateCard from "../components/Card";
+import CreateCard from "../pages/CreateCard";
 
 function App() {
   return (
