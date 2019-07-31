@@ -27,12 +27,10 @@ const CreateTitle = styled(TextSize)`
 `;
 
 const CreateButton = styled(Button)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 80px;
   height: 40px;
   margin-top: 20px;
+  justify-self: center;
 `;
 
 function CreateCard({ onCreate, history }) {
