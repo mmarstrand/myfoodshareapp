@@ -4,11 +4,15 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Cards from "../pages/Cards";
 import Header from "../components/Header";
 import CreateCard from "../pages/CreateCard";
-import cardsMockData from "../pages/__mock__/cards.json";
+import { getFromLocalStorage, setToLocalStorage } from "../utils/localstorage";
 
 function App() {
-  const [inputData, setInputData] = React.useState(cardsMockData);
+  const [inputData, setInputData] = React.useState(
+    getFromLocalStorage("inputData") || []
+  );
   console.log(inputData, "newState");
+
+  React.useEffect(() => setToLocalStorage("inputData", inputData), [inputData]);
 
   function handleCreate(card) {
     setInputData([card, ...inputData]);
