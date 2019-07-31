@@ -2,21 +2,20 @@ import React from "react";
 import Card from "../components/Card";
 import cardsMockData from "./__mock__/cards.json";
 
-function Cards() {
-  const [cards, setCards] = React.useState(cardsMockData);
-  console.log(cards);
-  function renderCard(cards) {
+function Cards({ inputData }) {
+  function renderCard(item) {
     return (
       <Card
-        id={cards._id}
-        title={cards.title}
-        items={cards.items}
-        location={cards.location}
-        time={cards.time}
+        id={item._id}
+        name={item.name}
+        title={item.title}
+        description={item.description}
+        location={item.location}
+        time={item.time}
       />
     );
   }
-  return cards.map(item => renderCard(item));
+  return inputData.map(item => renderCard(item));
 }
 
 export default Cards;

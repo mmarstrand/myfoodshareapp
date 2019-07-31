@@ -6,11 +6,17 @@ const StyledCard = styled.div`
   padding: 18px;
   border-radius: 20px;
   position: relative;
-  margin: 20px;
+  margin: 0px 20px 20px 20px;
 `;
 
 const StyledTitle = styled.div`
   font-weight: bold;
+`;
+const StyledName = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+  margin-bottom: 0px;
 `;
 
 const StyledLocation = styled.div`
@@ -39,9 +45,12 @@ const StyledIcon = styled.img`
   height: 18px;
 `;
 
-function Card({ title, items, location, time, image }) {
+function Card({ name, title, description, location, time, image }) {
   return (
     <>
+      <StyledName>
+        {name} has {description.length} items for you
+      </StyledName>
       <StyledCard>
         <StyledTitle>
           <StyledIcon src="/info.svg" />
@@ -49,8 +58,8 @@ function Card({ title, items, location, time, image }) {
         </StyledTitle>
         <StyledDescription>
           <ul>
-            {items.map(item => (
-              <StyledDescriptionItem>{item}</StyledDescriptionItem>
+            {description.map(descItem => (
+              <StyledDescriptionItem>{descItem}</StyledDescriptionItem>
             ))}
           </ul>
           <StyledImage src="/vegetables.jpg" alt="Food image">
