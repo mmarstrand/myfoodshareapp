@@ -60,7 +60,7 @@ function CreateCard({ onCreate, history }) {
       <Form onSubmit={handleSubmit}>
         <InputTitle size="Medium">Your name</InputTitle>
         <Input name="name" placeholder="First name ex. Maria" />
-        <InputTitle size="Medium">Title</InputTitle>
+        <InputTitle size="Medium">Description title</InputTitle>
         <Input name="title" placeholder="Giving away due to holiday" />
         <InputTitle size="Medium">Description of food items</InputTitle>
         <Input
