@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import TextSize from "../components/TextSize";
 import Button from "../components/Button";
+import axios from "axios";
 
 const Form = styled.form`
   padding: 10px;
@@ -33,9 +34,17 @@ const CreateButton = styled(Button)`
   justify-self: center;
 `;
 
+const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
+const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
+
 function CreateCard({ onCreate, history }) {
+  const [image, setImage] = useState("");
+
+  console.log(image);
+
   function handleSubmit(event) {
     event.preventDefault();
+
     const form = event.target;
 
     const description =
@@ -47,11 +56,35 @@ function CreateCard({ onCreate, history }) {
       title: form.title.value,
       description,
       location: form.location.value,
-      time: form.time.value
+      time: form.time.value,
+      image: image
     };
+
     console.log(card);
     onCreate(card);
     history.push("/marketplace");
+  }
+
+  function upload(event) {
+    const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`;
+
+    const formData = new FormData();
+    formData.append("file", event.target.files[0]);
+    formData.append("upload_preset", PRESET);
+
+    axios
+      .post(url, formData, {
+        headers: {
+          "Content-type": "multipart/form-data"
+        }
+      })
+      .then(onImageSave)
+      .catch(err => console.error(err));
+  }
+
+  function onImageSave(response) {
+    console.log(response);
+    setImage(response.data.url);
   }
 
   return (
@@ -59,14 +92,16 @@ function CreateCard({ onCreate, history }) {
       <CreateTitle size="Large">Share your info</CreateTitle>
       <Form onSubmit={handleSubmit}>
         <InputTitle size="Medium">Your name</InputTitle>
-        <Input name="name" placeholder="First name ex. Maria" />
+        <Input name="name" placeholder="First name is sufficient" />
         <InputTitle size="Medium">Description title</InputTitle>
         <Input name="title" placeholder="Giving away due to holiday" />
         <InputTitle size="Medium">Description of food items</InputTitle>
         <Input
           name="description"
           placeholder="2 choclate bars, 1 kg strawberries"
-        />
+        />{" "}
+        <InputTitle size="Medium">Upload image (optional)</InputTitle>
+        <Input type="file" name="image" onChange={upload} />
         <InputTitle size="Medium">Pick-up location</InputTitle>
         <Input
           name="location"

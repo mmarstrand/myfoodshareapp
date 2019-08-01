@@ -10,7 +10,7 @@ function App() {
   const [inputData, setInputData] = React.useState(
     getFromLocalStorage("inputData") || []
   );
-  console.log(inputData, "newState");
+  // console.log(inputData, "newState");
 
   React.useEffect(() => setToLocalStorage("inputData", inputData), [inputData]);
 

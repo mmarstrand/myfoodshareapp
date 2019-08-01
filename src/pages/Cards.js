@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../components/Card";
-import TextSize from "../components/TextSize";
 
 function Cards({ inputData }) {
   function renderCard(item) {
@@ -13,6 +12,7 @@ function Cards({ inputData }) {
           description={item.description}
           location={item.location}
           time={item.time}
+          image={item.image}
         />
       </>
     );
