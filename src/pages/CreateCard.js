@@ -14,6 +14,10 @@ const Input = styled.input`
   padding: 18px;
   border-radius: 20px;
   margin: 0px 20px 10px 20px;
+  ::placeholder {
+    font-size: 12px;
+    color: grey;
+  }
 `;
 
 const InputTitle = styled(TextSize)`
