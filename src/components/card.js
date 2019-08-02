@@ -66,7 +66,11 @@ function Card({ name, title, description, location, time, image }) {
               </StyledDescriptionItem>
             ))}
           </ul>
-          <StyledImage src={image} alt="Food image" />
+          {image ? (
+            <StyledImage src={image} alt="Food image" />
+          ) : (
+            <StyledImage src="/vegetables.jpg" alt="Food image" />
+          )}
         </StyledDescription>
         <StyledLocation>
           <StyledIcon src="/pin.svg" />
