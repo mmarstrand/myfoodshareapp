@@ -105,7 +105,12 @@ function CreateCard({ onCreate, history }) {
           placeholder="2 choclate bars, 1 kg strawberries"
         />{" "}
         <InputTitle size="Medium">Upload image (optional)</InputTitle>
-        <Input type="file" name="image" onChange={upload} />
+        <Input
+          type="file"
+          name="image"
+          onChange={upload}
+          placeholder="If no image is uploaded, a stock image will be shown"
+        />
         <InputTitle size="Medium">Pick-up location</InputTitle>
         <Input
           name="location"
