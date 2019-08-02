@@ -36,6 +36,8 @@ const StyledImage = styled.img`
   width: 120px;
   display: flex;
   justify-content: flex-end;
+  border-radius: 20px;
+  opacity: 60%;
 `;
 
 const StyledIcon = styled.img`
@@ -58,13 +60,17 @@ function Card({ name, title, description, location, time, image }) {
         </StyledTitle>
         <StyledDescription>
           <ul>
-            {description.map(descItem => (
-              <StyledDescriptionItem>{descItem}</StyledDescriptionItem>
+            {description.map((descItem, index) => (
+              <StyledDescriptionItem key={descItem + index}>
+                {descItem}
+              </StyledDescriptionItem>
             ))}
           </ul>
-          <StyledImage src="/vegetables.jpg" alt="Food image">
-            {image}
-          </StyledImage>
+          {image ? (
+            <StyledImage src={image} alt="Food image" />
+          ) : (
+            <StyledImage src="/vegetables.jpg" alt="Food image" />
+          )}
         </StyledDescription>
         <StyledLocation>
           <StyledIcon src="/pin.svg" />
