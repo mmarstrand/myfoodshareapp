@@ -5,6 +5,7 @@ import Cards from "../pages/Cards";
 import Header from "../components/Header";
 import CreateCard from "../pages/CreateCard";
 import { getFromLocalStorage, setToLocalStorage } from "../utils/localstorage";
+import Footer from "../components/Footer";
 
 function App() {
   const [inputData, setInputData] = React.useState(
@@ -33,6 +34,7 @@ function App() {
             render={props => <CreateCard onCreate={handleCreate} {...props} />}
           />
         </Switch>
+        <Footer />
       </Router>
     </>
   );
