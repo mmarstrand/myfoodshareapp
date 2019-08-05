@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import CreateCard from "../pages/CreateCard";
 import { getFromLocalStorage, setToLocalStorage } from "../utils/localstorage";
 import Footer from "../components/Footer";
+import Home from "../pages/Home";
 
 function App() {
   const [inputData, setInputData] = React.useState(
@@ -24,7 +25,10 @@ function App() {
       <Router>
         <GlobalStyles />
         <Header />
+
         <Switch>
+          <Route path="/" exact component={Home} />
+
           <Route
             path="/marketplace"
             render={props => <Cards inputData={inputData} {...props} />}
@@ -34,6 +38,9 @@ function App() {
             render={props => <CreateCard onCreate={handleCreate} {...props} />}
           />
         </Switch>
+
+        <div style={{ flexGrow: 1 }} />
+
         <Footer />
       </Router>
     </>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledFooter = styled.div`
   display: grid;
@@ -7,20 +8,30 @@ const StyledFooter = styled.div`
   justify-items: center;
   background-color: #1d566e;
   margin-top: 10px;
+  position: relative;
 `;
 
 const StyledFooterIcons = styled.img`
   margin: 10px;
+  height: 30px;
 `;
 
 function Footer() {
   return (
     <>
       <StyledFooter>
-        <StyledFooterIcons src="/home.png" />
-        <StyledFooterIcons src="/share.png" />
-        <StyledFooterIcons src="/find.png" />
-        <StyledFooterIcons src="/shopping.png" />
+        <Link to="/">
+          <StyledFooterIcons src="/home2.svg" />
+        </Link>
+        <Link to="/share">
+          <StyledFooterIcons src="/sharewhite.svg" />
+        </Link>
+        <Link to="/marketplace">
+          <StyledFooterIcons src="/collaborationwhite.svg" />
+        </Link>
+        <Link to="/marketplace">
+          <StyledFooterIcons src="/basketwhite.svg" />
+        </Link>
       </StyledFooter>
     </>
   );
