@@ -8,6 +8,7 @@ const StyledFooter = styled.div`
   justify-items: center;
   background-color: #1d566e;
   position: relative;
+  bottom: 0px;
 `;
 
 const StyledFooterIcons = styled.img`

@@ -32,8 +32,8 @@ const StyledText = styled.div`
 function Home() {
   return (
     <>
-      <StyledBackground src="/background.jpg" alt="Food" />
       <StyledFullscreen>
+        <StyledBackground src="/background.jpg" alt="Food" />
         <Link to="/share">
           <StyledHomeButton>Share food</StyledHomeButton>
         </Link>
