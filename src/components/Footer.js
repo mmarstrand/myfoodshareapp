@@ -7,8 +7,8 @@ const StyledFooter = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   background-color: #1d566e;
-  margin-top: 10px;
   position: relative;
+  bottom: 0px;
 `;
 
 const StyledFooterIcons = styled.img`
