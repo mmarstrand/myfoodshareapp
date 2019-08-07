@@ -8,6 +8,7 @@ const StyledCard = styled.div`
   border-radius: 20px;
   position: relative;
   margin: 0px 20px 20px 20px;
+  background-color: ${props => (props.active ? "#E3EEED" : "white")};
 `;
 
 const StyledTitle = styled.div`
@@ -55,10 +56,6 @@ const StyledGetButton = styled(Button)`
   background-color: ${props => (props.active ? "#E3EEED" : "#45eba5")};
 `;
 
-function GetButton({ active, onClick, ...props }) {
-  return <StyledGetButton active={active} onClick={onClick} {...props} />;
-}
-
 function Card({
   name,
   title,
@@ -74,7 +71,7 @@ function Card({
       <StyledName>
         {name} has {description.length} items for you
       </StyledName>
-      <StyledCard>
+      <StyledCard active={taken}>
         <StyledTitle>
           <StyledIcon src="/info.svg" />
           {title}
@@ -101,9 +98,9 @@ function Card({
           <StyledIcon src="/clock.svg" />
           Pick-up time: {time}
         </StyledTime>
-        <GetButton active={taken} onClick={onGet}>
+        <StyledGetButton active={taken} onClick={onGet}>
           Get
-        </GetButton>
+        </StyledGetButton>
       </StyledCard>
     </>
   );

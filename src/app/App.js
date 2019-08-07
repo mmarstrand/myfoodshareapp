@@ -28,6 +28,17 @@ function App() {
 
   React.useEffect(() => setToLocalStorage("inputData", inputData), [inputData]);
 
+  //const [showTaken, setShowTaken] = React.useState();
+
+  function handleToggleTaken(id) {
+    const index = inputData.findIndex(input => input.id === id);
+    const input = inputData[index];
+
+    const newInputData = inputData.slice();
+    newInputData[index] = { ...input, taken: !input.taken };
+    setInputData(newInputData);
+  }
+
   function handleCreate(card) {
     setInputData([card, ...inputData]);
   }
@@ -43,7 +54,13 @@ function App() {
 
             <Route
               path="/marketplace"
-              render={props => <Cards inputData={inputData} {...props} />}
+              render={props => (
+                <Cards
+                  inputData={inputData}
+                  onToggleGet={handleToggleTaken}
+                  {...props}
+                />
+              )}
             />
             <Route
               path="/share"

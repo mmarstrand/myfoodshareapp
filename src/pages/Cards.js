@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
 
-function Cards({ inputData }) {
+function Cards({ inputData, onToggleGet }) {
   function renderCard(item) {
     return (
       <>
@@ -13,6 +13,8 @@ function Cards({ inputData }) {
           location={item.location}
           time={item.time}
           image={item.image}
+          taken={item.taken}
+          onGet={() => onToggleGet(item._id)}
         />
       </>
     );
