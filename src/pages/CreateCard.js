@@ -3,21 +3,12 @@ import styled from "styled-components";
 import TextSize from "../components/TextSize";
 import Button from "../components/Button";
 import axios from "axios";
+import Input from "../components/Input";
 
 const Form = styled.form`
   padding: 10px;
   display: grid;
   grid-gap: 5px;
-`;
-const Input = styled.input`
-  border: 2px solid #163a5f;
-  padding: 18px;
-  border-radius: 20px;
-  margin: 0px 20px 10px 20px;
-  ::placeholder {
-    font-size: 12px;
-    color: grey;
-  }
 `;
 
 const InputTitle = styled(TextSize)`
@@ -43,28 +34,69 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
 
 function CreateCard({ onCreate, history }) {
   const [image, setImage] = useState("");
+  const [errors, setErrors] = React.useState({});
+  const [formValues, setFormValues] = React.useState({
+    name: "",
+    title: "",
+    description: "",
+    location: "",
+    time: ""
+  });
 
-  console.log(image);
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value
+    });
+  }
+
+  function validate() {
+    const errors = {};
+
+    if (formValues.name.trim() === "") {
+      errors.name = "Please fill in your name";
+    }
+    if (formValues.title.trim() === "") {
+      errors.title = "Please fill in your decription title";
+    }
+    if (formValues.description.trim() === "") {
+      errors.description = "Please fill in your description of food items";
+    }
+    if (formValues.location.trim() === "") {
+      errors.location = "Please fill in your prefered pick-up location";
+    }
+    if (formValues.time.trim() === "") {
+      errors.time = "Please fill in your prefered pick-up time";
+    }
+
+    return Object.keys(errors).length === 0 ? null : errors;
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
+    const errors = validate();
 
-    const form = event.target;
+    if (errors) {
+      setErrors(errors);
+      return;
+    }
 
+    //const form = event.target;
     const description =
-      form.description.value &&
-      form.description.value.split(",").map(descItem => descItem.trim());
+      formValues.description &&
+      formValues.description.split(",").map(descItem => descItem.trim());
 
     const card = {
-      name: form.name.value,
-      title: form.title.value,
+      name: formValues.name,
+      title: formValues.title,
       description,
-      location: form.location.value,
-      time: form.time.value,
+      location: formValues.location,
+      time: formValues.time,
       image: image
     };
 
-    console.log(card);
+    //console.log(card);
     onCreate(card);
     history.push("/marketplace");
   }
@@ -96,14 +128,29 @@ function CreateCard({ onCreate, history }) {
       <CreateTitle size="Large">Share your info</CreateTitle>
       <Form onSubmit={handleSubmit}>
         <InputTitle size="Medium">Your name</InputTitle>
-        <Input name="name" placeholder="First name is sufficient" />
+        <Input
+          name="name"
+          placeholder="First name is sufficient"
+          value={formValues.name}
+          onChange={handleChange}
+          error={errors.name}
+        />
         <InputTitle size="Medium">Description title</InputTitle>
-        <Input name="title" placeholder="Giving away due to holiday" />
+        <Input
+          name="title"
+          placeholder="Giving away due to holiday"
+          value={formValues.title}
+          onChange={handleChange}
+          error={errors.title}
+        />
         <InputTitle size="Medium">Description of food items</InputTitle>
         <Input
           name="description"
           placeholder="2 choclate bars, 1 kg strawberries"
-        />{" "}
+          value={formValues.description}
+          onChange={handleChange}
+          error={errors.description}
+        />
         <InputTitle size="Medium">Upload image (optional)</InputTitle>
         <Input
           type="file"
@@ -115,9 +162,18 @@ function CreateCard({ onCreate, history }) {
         <Input
           name="location"
           placeholder="Your address or prefered meeting point"
+          value={formValues.location}
+          onChange={handleChange}
+          error={errors.location}
         />
         <InputTitle size="Medium">Pick-up time</InputTitle>
-        <Input name="time" placeholder=" Today between 10-12am or 5-8pm " />
+        <Input
+          name="time"
+          placeholder=" Today between 10-12am or 5-8pm "
+          value={formValues.time}
+          onChange={handleChange}
+          error={errors.time}
+        />
         <CreateButton>Submit</CreateButton>
       </Form>
     </>
