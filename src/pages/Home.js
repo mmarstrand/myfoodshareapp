@@ -8,7 +8,7 @@ const StyledBackground = styled.img`
   z-index: -1;
   width: 100vw;
   height: 100vh;
-  filter: grayscale(0.3) saturate(2) brightness(1);
+  filter: grayscale(0.3) saturate(2) brightness(0.7);
 `;
 
 const StyledHomeButton = styled(Button)`
