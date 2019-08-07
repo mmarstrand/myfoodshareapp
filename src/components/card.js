@@ -50,10 +50,13 @@ const StyledIcon = styled.img`
 `;
 
 const StyledGetButton = styled(Button)`
-  display: flex;
-  justify-content: flex-end;
   margin-top: 10px;
   background-color: ${props => (props.active ? "#E3EEED" : "#45eba5")};
+`;
+
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 function Card({
@@ -64,7 +67,8 @@ function Card({
   time,
   image,
   taken,
-  onGet
+  onGet,
+  ...props
 }) {
   return (
     <>
@@ -98,9 +102,11 @@ function Card({
           <StyledIcon src="/clock.svg" />
           Pick-up time: {time}
         </StyledTime>
-        <StyledGetButton active={taken} onClick={onGet}>
-          Get
-        </StyledGetButton>
+        <ButtonDiv>
+          <StyledGetButton active={taken} onClick={onGet}>
+            {taken ? "Sorry, already reserved" : "Get these items"}
+          </StyledGetButton>
+        </ButtonDiv>
       </StyledCard>
     </>
   );
