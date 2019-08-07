@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../components/Button";
 
 const StyledCard = styled.div`
   border: 2px solid #163a5f;
@@ -47,7 +48,27 @@ const StyledIcon = styled.img`
   height: 18px;
 `;
 
-function Card({ name, title, description, location, time, image }) {
+const StyledGetButton = styled(Button)`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  background-color: ${props => (props.active ? "#E3EEED" : "#45eba5")};
+`;
+
+function GetButton({ active, onClick, ...props }) {
+  return <StyledGetButton active={active} onClick={onClick} {...props} />;
+}
+
+function Card({
+  name,
+  title,
+  description,
+  location,
+  time,
+  image,
+  taken,
+  onGet
+}) {
   return (
     <>
       <StyledName>
@@ -80,6 +101,9 @@ function Card({ name, title, description, location, time, image }) {
           <StyledIcon src="/clock.svg" />
           Pick-up time: {time}
         </StyledTime>
+        <GetButton active={taken} onClick={onGet}>
+          Get
+        </GetButton>
       </StyledCard>
     </>
   );
