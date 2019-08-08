@@ -36,6 +36,7 @@ const StyledDescription = styled.div`
 const StyledImage = styled.img`
   align-items: right;
   width: 120px;
+  max-height: 120px;
   display: flex;
   justify-content: flex-end;
   border-radius: 20px;
@@ -51,12 +52,13 @@ const StyledIcon = styled.img`
 
 const StyledGetButton = styled(Button)`
   margin-top: 10px;
-  background-color: ${props => (props.active ? "#E3EEED" : "#45eba5")};
+  background-color: ${props => (props.active ? "Orange" : "#45eba5")};
 `;
 
 const ButtonDiv = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-top: 0px;
 `;
 
 function Card({
@@ -75,7 +77,7 @@ function Card({
       <StyledName>
         {name} has {description.length} items for you
       </StyledName>
-      <StyledCard active={taken}>
+      <StyledCard {...props} active={taken}>
         <StyledTitle>
           <StyledIcon src="/info.svg" />
           {title}
@@ -104,7 +106,7 @@ function Card({
         </StyledTime>
         <ButtonDiv>
           <StyledGetButton active={taken} onClick={onGet}>
-            {taken ? "Sorry, already reserved" : "Get these items"}
+            {taken ? "Reserved" : "Get it"}
           </StyledGetButton>
         </ButtonDiv>
       </StyledCard>

@@ -4,6 +4,7 @@ import TextSize from "../components/TextSize";
 import Button from "../components/Button";
 import axios from "axios";
 import Input from "../components/Input";
+import uuid from "uuid/v4";
 
 const Form = styled.form`
   padding: 10px;
@@ -88,6 +89,7 @@ function CreateCard({ onCreate, history }) {
       formValues.description.split(",").map(descItem => descItem.trim());
 
     const card = {
+      _id: uuid(),
       name: formValues.name,
       title: formValues.title,
       description,

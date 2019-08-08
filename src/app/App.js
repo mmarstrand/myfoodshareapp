@@ -31,7 +31,7 @@ function App() {
   //const [showTaken, setShowTaken] = React.useState();
 
   function handleToggleTaken(id) {
-    const index = inputData.findIndex(input => input.id === id);
+    const index = inputData.findIndex(input => input._id === id);
     const input = inputData[index];
 
     const newInputData = inputData.slice();
