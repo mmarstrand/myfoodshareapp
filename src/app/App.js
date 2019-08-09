@@ -28,7 +28,7 @@ function App() {
 
   React.useEffect(() => setToLocalStorage("inputData", inputData), [inputData]);
 
-  //const [showTaken, setShowTaken] = React.useState();
+  const [showTakenItems, setShowTakenItems] = React.useState();
 
   function handleToggleTaken(id) {
     const index = inputData.findIndex(input => input._id === id);
@@ -41,6 +41,10 @@ function App() {
 
   function handleCreate(card) {
     setInputData([card, ...inputData]);
+  }
+
+  function handleShowTakenItems() {
+    setShowTakenItems(!showTakenItems);
   }
 
   return (
@@ -58,6 +62,8 @@ function App() {
                 <Cards
                   inputData={inputData}
                   onToggleGet={handleToggleTaken}
+                  onShowTakenItems={handleShowTakenItems}
+                  showTakenItems={showTakenItems}
                   {...props}
                 />
               )}

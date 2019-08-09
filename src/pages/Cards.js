@@ -1,7 +1,20 @@
 import React from "react";
 import Card from "../components/Card";
+import Button from "../components/Button";
+import styled from "styled-components";
 
-function Cards({ inputData, onToggleGet }) {
+const ContainerButton = styled.div`
+display: flex;
+align-items: right
+justify-content: center;
+`;
+
+const FilterButton = styled(Button)`
+  background: orange;
+  height: 50px;
+`;
+
+function Cards({ inputData, onToggleGet, showTakenItems, onShowTakenItems }) {
   function renderCard(item) {
     return (
       <>
@@ -20,9 +33,22 @@ function Cards({ inputData, onToggleGet }) {
     );
   }
 
-  return inputData.map(item => renderCard(item));
-}
+  const filteredCards = showTakenItems
+    ? inputData.filter(item => item.taken)
+    : inputData;
 
-/*<TextSize size="Medium">Save these items</TextSize>;*/
+  return (
+    <>
+      {filteredCards.map(item => renderCard(item))};
+      <ContainerButton>
+        <FilterButton active={showTakenItems} onClick={onShowTakenItems}>
+          See your reserved items
+        </FilterButton>
+      </ContainerButton>
+    </>
+  );
+
+  /*return inputData.map(item => renderCard(item));*/
+}
 
 export default Cards;
