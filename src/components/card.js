@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../components/Button";
 
 const StyledCard = styled.div`
   border: 2px solid #163a5f;
@@ -7,6 +8,7 @@ const StyledCard = styled.div`
   border-radius: 20px;
   position: relative;
   margin: 0px 20px 20px 20px;
+  background-color: ${props => (props.active ? "#E3EEED" : "white")};
 `;
 
 const StyledTitle = styled.div`
@@ -34,6 +36,7 @@ const StyledDescription = styled.div`
 const StyledImage = styled.img`
   align-items: right;
   width: 120px;
+  max-height: 120px;
   display: flex;
   justify-content: flex-end;
   border-radius: 20px;
@@ -47,13 +50,34 @@ const StyledIcon = styled.img`
   height: 18px;
 `;
 
-function Card({ name, title, description, location, time, image }) {
+const StyledGetButton = styled(Button)`
+  margin-top: 10px;
+  background-color: ${props => (props.active ? "Orange" : "#45eba5")};
+`;
+
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0px;
+`;
+
+function Card({
+  name,
+  title,
+  description,
+  location,
+  time,
+  image,
+  taken,
+  onGet,
+  ...props
+}) {
   return (
     <>
       <StyledName>
         {name} has {description.length} items for you
       </StyledName>
-      <StyledCard>
+      <StyledCard {...props} active={taken}>
         <StyledTitle>
           <StyledIcon src="/info.svg" />
           {title}
@@ -80,6 +104,11 @@ function Card({ name, title, description, location, time, image }) {
           <StyledIcon src="/clock.svg" />
           Pick-up time: {time}
         </StyledTime>
+        <ButtonDiv>
+          <StyledGetButton active={taken} onClick={onGet}>
+            {taken ? "Reserved" : "Get it"}
+          </StyledGetButton>
+        </ButtonDiv>
       </StyledCard>
     </>
   );
