@@ -55,7 +55,6 @@ function App() {
         <ContentContainer>
           <Switch>
             <Route path="/" exact component={Home} />
-
             <Route
               path="/marketplace"
               render={props => (
@@ -74,6 +73,7 @@ function App() {
                 <CreateCard onCreate={handleCreate} {...props} />
               )}
             />
+            <Route path="/basket" />
           </Switch>
         </ContentContainer>
         <Footer />

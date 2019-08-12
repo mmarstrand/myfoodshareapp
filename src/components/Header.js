@@ -4,7 +4,6 @@ import { keyframes } from "styled-components";
 
 const StyledHeader = styled.div`
   background: #21aba5;
-  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;

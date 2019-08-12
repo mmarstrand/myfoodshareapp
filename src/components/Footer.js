@@ -29,7 +29,7 @@ function Footer() {
         <Link to="/marketplace">
           <StyledFooterIcons src="/collaborationwhite.svg" />
         </Link>
-        <Link to="/marketplace">
+        <Link to="/basket">
           <StyledFooterIcons src="/basketwhite.svg" />
         </Link>
       </StyledFooter>
