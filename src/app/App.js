@@ -28,7 +28,7 @@ function App() {
 
   React.useEffect(() => setToLocalStorage("inputData", inputData), [inputData]);
 
-  //const [showTaken, setShowTaken] = React.useState();
+  const [showTakenItems, setShowTakenItems] = React.useState();
 
   function handleToggleTaken(id) {
     const index = inputData.findIndex(input => input._id === id);
@@ -43,6 +43,10 @@ function App() {
     setInputData([card, ...inputData]);
   }
 
+  function handleShowTakenItems() {
+    setShowTakenItems(!showTakenItems);
+  }
+
   return (
     <Router>
       <GlobalStyles />
@@ -51,13 +55,14 @@ function App() {
         <ContentContainer>
           <Switch>
             <Route path="/" exact component={Home} />
-
             <Route
               path="/marketplace"
               render={props => (
                 <Cards
                   inputData={inputData}
                   onToggleGet={handleToggleTaken}
+                  onShowTakenItems={handleShowTakenItems}
+                  showTakenItems={showTakenItems}
                   {...props}
                 />
               )}
@@ -68,6 +73,7 @@ function App() {
                 <CreateCard onCreate={handleCreate} {...props} />
               )}
             />
+            <Route path="/basket" />
           </Switch>
         </ContentContainer>
         <Footer />
