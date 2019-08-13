@@ -74,6 +74,15 @@ const ButtonDeleteDiv = styled.div`
   margin-top: 0px;
 `;
 
+const options = {
+  year: "2-digit",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false
+};
+
 function Card({
   name,
   title,
@@ -86,6 +95,9 @@ function Card({
   onDelete,
   ...props
 }) {
+  function HandleDate() {
+    return new Date().toLocaleDateString("en-US", options);
+  }
   return (
     <>
       <StyledName>
@@ -130,6 +142,7 @@ function Card({
         ) : (
           <ButtonDeleteDiv />
         )}
+        <HandleDate />
       </StyledCard>
     </>
   );
