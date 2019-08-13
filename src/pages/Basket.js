@@ -39,7 +39,6 @@ function Basket({ inputData }) {
           <StyledBackButton>Back to marketplace</StyledBackButton>
         </ContainerButton>
       </Link>
-      ;
     </>
   );
 }

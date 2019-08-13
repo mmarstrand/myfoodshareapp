@@ -52,9 +52,10 @@ const StyledIcon = styled.img`
 
 const StyledIconTrashCan = styled.i`
   margin-right: 5px;
-  margin-bottom: 0;
+  margin-bottom: 0px;
   width: 18px;
   height: 18px;
+  align-items: center;
 `;
 
 const StyledGetButton = styled(Button)`
@@ -131,17 +132,18 @@ function Card({
           Pick-up time: {time}
         </StyledTime>
         <ButtonDiv>
+          {taken ? (
+            <ButtonDeleteDiv onClick={onDelete}>
+              <StyledIconTrashCan className="far fa-trash-alt" />
+            </ButtonDeleteDiv>
+          ) : (
+            <ButtonDeleteDiv />
+          )}
           <StyledGetButton active={taken} onClick={onGet}>
             {taken ? "Reserved" : "Get it"}
           </StyledGetButton>
         </ButtonDiv>
-        {taken ? (
-          <ButtonDeleteDiv onClick={onDelete}>
-            <StyledIconTrashCan className="far fa-trash-alt" />
-          </ButtonDeleteDiv>
-        ) : (
-          <ButtonDeleteDiv />
-        )}
+
         <HandleDate />
       </StyledCard>
     </>
