@@ -50,7 +50,14 @@ function App() {
 
   function handleDelete(id) {
     const index = inputData.findIndex(input => input._id === id);
-    setInputData([...inputData.slice(0, index), ...inputData.slice(index + 1)]);
+    const Delete = prompt("Are you sure you want to delete it? (yes/no)");
+    if (Delete === "yes") {
+      setInputData([
+        ...inputData.slice(0, index),
+        ...inputData.slice(index + 1)
+      ]);
+    }
+
     console.log("test", id);
   }
 
