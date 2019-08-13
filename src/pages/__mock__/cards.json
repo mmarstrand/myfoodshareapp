@@ -4,15 +4,29 @@
     "name": "Maria",
     "title": "Giving away due to holiday",
     "description": ["2 bananas", "salad", "jordbær"],
-    "location": "Fruchtallee 8a, Hamburg",
-    "time": "5-10pm"
+    "taken": false,
+    "image": "https://theenerjuicer.com/wp-content/uploads/2018/03/52.jpg",
+    "location": "Urlaubsallee 12a, 20778 Hamburg",
+    "time": "Tuesday 31.08 17-22"
   },
   {
     "_id": 2,
     "name": "Annika",
-    "title": "Bought too much",
-    "description": ["2 bananas", "salad", "jordbær"],
-    "location": "Fruchtallee 8a, Hamburg",
-    "time": "5-10pm"
+    "title": "Apples from the garden",
+    "description": ["10 kg apples", "pears", "tomatoes"],
+    "location": "Fruchtallee 8a, 20257 Hamburg",
+    "image": "https://www.starkbros.com/images/dynamic/881-960x960.jpg",
+    "taken": true,
+    "time": "Tuesday 31.08 17-22"
+  },
+  {
+    "_id": 3,
+    "name": "Mads",
+    "title": "Leftover beer from party",
+    "description": ["25 Carlsberg beers", "5 bags of chips"],
+    "location": "Partyallee 10, 20257 Hamburg",
+    "image": "https://www.liquoroutletwinecellars.com/labels/B00078.jpg",
+    "taken": false,
+    "time": "Tuesday 31.08 17-22"
   }
 ]

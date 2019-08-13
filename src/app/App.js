@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import styled from "styled-components";
 import Basket from "../pages/Basket";
+import mockData from "../pages/__mock__/cards.json";
 
 const Grid = styled.div`
   display: grid;
@@ -23,7 +24,7 @@ const ContentContainer = styled.div`
 
 function App() {
   const [inputData, setInputData] = React.useState(
-    getFromLocalStorage("inputData") || []
+    getFromLocalStorage("inputData") && mockData
   );
   // console.log(inputData, "newState");
 
@@ -57,8 +58,6 @@ function App() {
         ...inputData.slice(index + 1)
       ]);
     }
-
-    console.log("test", id);
   }
 
   return (
