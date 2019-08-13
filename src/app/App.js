@@ -48,6 +48,12 @@ function App() {
     setShowTakenItems(!showTakenItems);
   }
 
+  function handleDelete(id) {
+    const index = inputData.findIndex(input => input._id === id);
+    setInputData([...inputData.slice(0, index), ...inputData.slice(index + 1)]);
+    console.log("test", id);
+  }
+
   return (
     <Router>
       <GlobalStyles />
@@ -64,6 +70,7 @@ function App() {
                   onToggleGet={handleToggleTaken}
                   onShowTakenItems={handleShowTakenItems}
                   showTakenItems={showTakenItems}
+                  onDelete={handleDelete}
                   {...props}
                 />
               )}

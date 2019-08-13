@@ -14,7 +14,13 @@ const FilterButton = styled(Button)`
   height: 50px;
 `;
 
-function Cards({ inputData, onToggleGet, showTakenItems, onShowTakenItems }) {
+function Cards({
+  inputData,
+  onToggleGet,
+  showTakenItems,
+  onShowTakenItems,
+  onDelete
+}) {
   function renderCard(item) {
     return (
       <>
@@ -28,6 +34,7 @@ function Cards({ inputData, onToggleGet, showTakenItems, onShowTakenItems }) {
           image={item.image}
           taken={item.taken}
           onGet={() => onToggleGet(item._id)}
+          onDelete={() => onDelete(item._id)}
         />
       </>
     );

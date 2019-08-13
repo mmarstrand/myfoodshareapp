@@ -83,11 +83,9 @@ function Card({
   image,
   taken,
   onGet,
+  onDelete,
   ...props
 }) {
-  function handleDelete() {
-    console.log("clicked");
-  }
   return (
     <>
       <StyledName>
@@ -126,7 +124,7 @@ function Card({
           </StyledGetButton>
         </ButtonDiv>
         {taken ? (
-          <ButtonDeleteDiv onClick={handleDelete}>
+          <ButtonDeleteDiv onClick={onDelete}>
             <StyledIconTrashCan className="far fa-trash-alt" />
           </ButtonDeleteDiv>
         ) : (
