@@ -8,6 +8,7 @@ import { getFromLocalStorage, setToLocalStorage } from "../utils/localstorage";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import styled from "styled-components";
+import Basket from "../pages/Basket";
 
 const Grid = styled.div`
   display: grid;
@@ -73,7 +74,10 @@ function App() {
                 <CreateCard onCreate={handleCreate} {...props} />
               )}
             />
-            <Route path="/basket" />
+            <Route
+              path="/basket"
+              render={props => <Basket inputData={inputData} />}
+            />
           </Switch>
         </ContentContainer>
         <Footer />

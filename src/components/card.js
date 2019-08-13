@@ -50,6 +50,13 @@ const StyledIcon = styled.img`
   height: 18px;
 `;
 
+const StyledIconTrashCan = styled.i`
+  margin-right: 5px;
+  margin-bottom: 0;
+  width: 18px;
+  height: 18px;
+`;
+
 const StyledGetButton = styled(Button)`
   margin-top: 10px;
   background-color: ${props => (props.active ? "Orange" : "#45eba5")};
@@ -58,6 +65,12 @@ const StyledGetButton = styled(Button)`
 const ButtonDiv = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-top: 0px;
+`;
+
+const ButtonDeleteDiv = styled.div`
+  display: flex;
+  justify-content: flex-start;
   margin-top: 0px;
 `;
 
@@ -72,6 +85,9 @@ function Card({
   onGet,
   ...props
 }) {
+  function handleDelete() {
+    console.log("clicked");
+  }
   return (
     <>
       <StyledName>
@@ -109,6 +125,13 @@ function Card({
             {taken ? "Reserved" : "Get it"}
           </StyledGetButton>
         </ButtonDiv>
+        {taken ? (
+          <ButtonDeleteDiv onClick={handleDelete}>
+            <StyledIconTrashCan className="far fa-trash-alt" />
+          </ButtonDeleteDiv>
+        ) : (
+          <ButtonDeleteDiv />
+        )}
       </StyledCard>
     </>
   );

@@ -4,9 +4,9 @@ import Button from "../components/Button";
 import styled from "styled-components";
 
 const ContainerButton = styled.div`
-display: flex;
-align-items: right
-justify-content: center;
+  display: flex;
+  align-items: right;
+  justify-content: center;
 `;
 
 const FilterButton = styled(Button)`
@@ -42,7 +42,7 @@ function Cards({ inputData, onToggleGet, showTakenItems, onShowTakenItems }) {
       {filteredCards.map(item => renderCard(item))};
       <ContainerButton>
         <FilterButton active={showTakenItems} onClick={onShowTakenItems}>
-          See your reserved items
+          See reserved items
         </FilterButton>
       </ContainerButton>
     </>
