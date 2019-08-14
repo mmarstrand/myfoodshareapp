@@ -46,7 +46,7 @@ function Cards({
 
   return (
     <>
-      {filteredCards.map(item => renderCard(item))};
+      {filteredCards.map(item => renderCard(item))}
       <ContainerButton>
         <FilterButton active={showTakenItems} onClick={onShowTakenItems}>
           See reserved items
@@ -54,8 +54,6 @@ function Cards({
       </ContainerButton>
     </>
   );
-
-  /*return inputData.map(item => renderCard(item));*/
 }
 
 export default Cards;

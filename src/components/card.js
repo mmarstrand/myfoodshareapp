@@ -52,9 +52,7 @@ const StyledIcon = styled.img`
 
 const StyledIconTrashCan = styled.i`
   margin-right: 5px;
-  margin-bottom: 0px;
-  width: 18px;
-  height: 18px;
+
   align-items: center;
 `;
 
@@ -66,13 +64,12 @@ const StyledGetButton = styled(Button)`
 const ButtonDiv = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 0px;
 `;
 
 const ButtonDeleteDiv = styled.div`
   display: flex;
   justify-content: flex-start;
-  margin-top: 0px;
+  margin-top: 14px;
 `;
 
 const options = {
@@ -143,8 +140,6 @@ function Card({
             {taken ? "Reserved" : "Get it"}
           </StyledGetButton>
         </ButtonDiv>
-
-        <HandleDate />
       </StyledCard>
     </>
   );
