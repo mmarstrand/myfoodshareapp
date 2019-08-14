@@ -140,6 +140,7 @@ function Card({
             {taken ? "Reserved" : "Get it"}
           </StyledGetButton>
         </ButtonDiv>
+        <HandleDate />
       </StyledCard>
     </>
   );
