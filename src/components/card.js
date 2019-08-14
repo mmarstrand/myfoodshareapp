@@ -50,6 +50,12 @@ const StyledIcon = styled.img`
   height: 18px;
 `;
 
+const StyledIconTrashCan = styled.i`
+  margin-right: 5px;
+
+  align-items: center;
+`;
+
 const StyledGetButton = styled(Button)`
   margin-top: 10px;
   background-color: ${props => (props.active ? "Orange" : "#45eba5")};
@@ -58,8 +64,22 @@ const StyledGetButton = styled(Button)`
 const ButtonDiv = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 0px;
 `;
+
+const ButtonDeleteDiv = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 14px;
+`;
+
+const options = {
+  year: "2-digit",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false
+};
 
 function Card({
   name,
@@ -70,8 +90,12 @@ function Card({
   image,
   taken,
   onGet,
+  onDelete,
   ...props
 }) {
+  function HandleDate() {
+    return new Date().toLocaleDateString("en-US", options);
+  }
   return (
     <>
       <StyledName>
@@ -105,6 +129,13 @@ function Card({
           Pick-up time: {time}
         </StyledTime>
         <ButtonDiv>
+          {taken ? (
+            <ButtonDeleteDiv onClick={onDelete}>
+              <StyledIconTrashCan className="far fa-trash-alt" />
+            </ButtonDeleteDiv>
+          ) : (
+            <ButtonDeleteDiv />
+          )}
           <StyledGetButton active={taken} onClick={onGet}>
             {taken ? "Reserved" : "Get it"}
           </StyledGetButton>

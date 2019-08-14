@@ -8,6 +8,8 @@ import { getFromLocalStorage, setToLocalStorage } from "../utils/localstorage";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import styled from "styled-components";
+import Basket from "../pages/Basket";
+import mockData from "../pages/__mock__/cards.json";
 
 const Grid = styled.div`
   display: grid;
@@ -22,7 +24,7 @@ const ContentContainer = styled.div`
 
 function App() {
   const [inputData, setInputData] = React.useState(
-    getFromLocalStorage("inputData") || []
+    getFromLocalStorage("inputData") && mockData
   );
   // console.log(inputData, "newState");
 
@@ -47,6 +49,17 @@ function App() {
     setShowTakenItems(!showTakenItems);
   }
 
+  function handleDelete(id) {
+    const index = inputData.findIndex(input => input._id === id);
+    const Delete = prompt("Are you sure you want to delete it? (yes/no)");
+    if (Delete === "yes") {
+      setInputData([
+        ...inputData.slice(0, index),
+        ...inputData.slice(index + 1)
+      ]);
+    }
+  }
+
   return (
     <Router>
       <GlobalStyles />
@@ -63,6 +76,7 @@ function App() {
                   onToggleGet={handleToggleTaken}
                   onShowTakenItems={handleShowTakenItems}
                   showTakenItems={showTakenItems}
+                  onDelete={handleDelete}
                   {...props}
                 />
               )}
@@ -73,7 +87,12 @@ function App() {
                 <CreateCard onCreate={handleCreate} {...props} />
               )}
             />
-            <Route path="/basket" />
+            <Route
+              path="/basket"
+              render={props => (
+                <Basket inputData={inputData} onDelete={handleDelete} />
+              )}
+            />
           </Switch>
         </ContentContainer>
         <Footer />

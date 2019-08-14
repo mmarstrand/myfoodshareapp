@@ -129,10 +129,10 @@ function CreateCard({ onCreate, history }) {
     <>
       <CreateTitle size="Large">Share your info</CreateTitle>
       <Form onSubmit={handleSubmit}>
-        <InputTitle size="Medium">Your name</InputTitle>
+        <InputTitle size="Medium">Your first name</InputTitle>
         <Input
           name="name"
-          placeholder="First name is sufficient"
+          placeholder="e.g. Maria"
           value={formValues.name}
           onChange={handleChange}
           error={errors.name}
@@ -140,7 +140,7 @@ function CreateCard({ onCreate, history }) {
         <InputTitle size="Medium">Description title</InputTitle>
         <Input
           name="title"
-          placeholder="Giving away due to holiday"
+          placeholder="e.g. Giving away due to holiday"
           value={formValues.title}
           onChange={handleChange}
           error={errors.title}
@@ -148,7 +148,7 @@ function CreateCard({ onCreate, history }) {
         <InputTitle size="Medium">Description of food items</InputTitle>
         <Input
           name="description"
-          placeholder="2 choclate bars, 1 kg strawberries"
+          placeholder="e.g. 2 choclate bars, 1 kg strawberries"
           value={formValues.description}
           onChange={handleChange}
           error={errors.description}
@@ -163,7 +163,7 @@ function CreateCard({ onCreate, history }) {
         <InputTitle size="Medium">Pick-up location</InputTitle>
         <Input
           name="location"
-          placeholder="Your address or prefered meeting point"
+          placeholder="Street, number, postal code, city"
           value={formValues.location}
           onChange={handleChange}
           error={errors.location}
@@ -171,7 +171,7 @@ function CreateCard({ onCreate, history }) {
         <InputTitle size="Medium">Pick-up time</InputTitle>
         <Input
           name="time"
-          placeholder=" Today between 10-12am or 5-8pm "
+          placeholder=" Date and time e.g. Tuesday, 31.08 11:00 - 14:00 "
           value={formValues.time}
           onChange={handleChange}
           error={errors.time}

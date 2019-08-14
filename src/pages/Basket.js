@@ -1,26 +1,17 @@
 import React from "react";
 import Card from "../components/Card";
-import Button from "../components/Button";
 import styled from "styled-components";
+import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
+const StyledBackButton = styled(Button)``;
 const ContainerButton = styled.div`
   display: flex;
   align-items: right;
   justify-content: center;
 `;
 
-const FilterButton = styled(Button)`
-  background: orange;
-  height: 50px;
-`;
-
-function Cards({
-  inputData,
-  onToggleGet,
-  showTakenItems,
-  onShowTakenItems,
-  onDelete
-}) {
+function Basket({ inputData, onDelete }) {
   function renderCard(item) {
     return (
       <>
@@ -33,27 +24,24 @@ function Cards({
           time={item.time}
           image={item.image}
           taken={item.taken}
-          onGet={() => onToggleGet(item._id)}
           onDelete={() => onDelete(item._id)}
         />
       </>
     );
   }
 
-  const filteredCards = showTakenItems
-    ? inputData.filter(item => item.taken)
-    : inputData;
+  const ReservedFoodItems = inputData.filter(item => item.taken);
 
   return (
     <>
-      {filteredCards.map(item => renderCard(item))}
-      <ContainerButton>
-        <FilterButton active={showTakenItems} onClick={onShowTakenItems}>
-          See reserved items
-        </FilterButton>
-      </ContainerButton>
+      {ReservedFoodItems.map(item => renderCard(item))}
+      <Link to="/marketplace">
+        <ContainerButton>
+          <StyledBackButton>Back to marketplace</StyledBackButton>
+        </ContainerButton>
+      </Link>
     </>
   );
 }
 
-export default Cards;
+export default Basket;
