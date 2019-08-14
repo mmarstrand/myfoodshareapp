@@ -11,7 +11,7 @@ const ContainerButton = styled.div`
   justify-content: center;
 `;
 
-function Basket({ inputData }) {
+function Basket({ inputData, onDelete }) {
   function renderCard(item) {
     return (
       <>
@@ -24,6 +24,7 @@ function Basket({ inputData }) {
           time={item.time}
           image={item.image}
           taken={item.taken}
+          onDelete={() => onDelete(item._id)}
         />
       </>
     );

@@ -89,7 +89,9 @@ function App() {
             />
             <Route
               path="/basket"
-              render={props => <Basket inputData={inputData} />}
+              render={props => (
+                <Basket inputData={inputData} onDelete={handleDelete} />
+              )}
             />
           </Switch>
         </ContentContainer>
