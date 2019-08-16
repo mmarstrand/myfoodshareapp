@@ -24,7 +24,7 @@ const ContentContainer = styled.div`
 
 function App() {
   const [inputData, setInputData] = React.useState(
-    getFromLocalStorage("inputData") && mockData
+    getFromLocalStorage("inputData") || mockData
   );
   // console.log(inputData, "newState");
 
