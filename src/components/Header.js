@@ -7,6 +7,7 @@ const StyledHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 50px;
 `;
 
 const StyledHeadline = styled.h1`
@@ -30,14 +31,14 @@ const StyledLogo = styled.img`
   animation: ${rotate} 5s linear;
 `;
 
-function Header() {
+function Header({ title, title2, ...props }) {
   return (
     <>
       <StyledHeader>
         <StyledHeadline>
-          FoodSh
+          {title}
           <StyledLogo src="/refresh.svg" />
-          re
+          {title2}
         </StyledHeadline>
       </StyledHeader>
     </>

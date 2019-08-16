@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import axios from "axios";
 import Input from "../components/Input";
 import uuid from "uuid/v4";
+import Header from "../components/Header";
 
 const Form = styled.form`
   padding: 10px;
@@ -15,12 +16,6 @@ const Form = styled.form`
 const InputTitle = styled(TextSize)`
   margin-left: 35px;
   margin-top: 20px;
-`;
-
-const CreateTitle = styled(TextSize)`
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
 `;
 
 const CreateButton = styled(Button)`
@@ -127,7 +122,7 @@ function CreateCard({ onCreate, history }) {
 
   return (
     <>
-      <CreateTitle size="Large">Share your info</CreateTitle>
+      <Header title="Sh" title2="re your info" />
       <Form onSubmit={handleSubmit}>
         <InputTitle size="Medium">Your first name</InputTitle>
         <Input

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 const StyledBackground = styled.img`
   position: absolute;
@@ -32,6 +33,7 @@ const StyledText = styled.div`
 function Home() {
   return (
     <>
+      <Header title="FoodSh" title2="re" />
       <StyledFullscreen>
         <StyledBackground src="/background.jpg" alt="Food" />
         <Link to="/share">

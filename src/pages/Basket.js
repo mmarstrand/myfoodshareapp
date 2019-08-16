@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import styled from "styled-components";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 const StyledBackButton = styled(Button)``;
 const ContainerButton = styled.div`
@@ -34,6 +35,7 @@ function Basket({ inputData, onDelete }) {
 
   return (
     <>
+      <Header title="Your b" title2="sket" />
       {ReservedFoodItems.map(item => renderCard(item))}
       <Link to="/marketplace">
         <ContainerButton>
