@@ -13,13 +13,8 @@ import mockData from "../pages/__mock__/cards.json";
 const Grid = styled.div`
   display: grid;
   grid-template-rows: 50px auto 50px;
-  width: 100vw;
   height: 100vh;
-`;
-
-const ContentContainer = styled.div`
-  overflow-y: auto;
-  display: grid;
+  width: 100vw;
 `;
 
 function App() {
