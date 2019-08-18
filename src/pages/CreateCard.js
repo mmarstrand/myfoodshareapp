@@ -5,6 +5,8 @@ import Button from "../components/Button";
 import axios from "axios";
 import Input from "../components/Input";
 import uuid from "uuid/v4";
+import Header from "../components/Header";
+import { ContentContainer } from "../components/ContentContainer";
 
 const Form = styled.form`
   padding: 10px;
@@ -15,12 +17,6 @@ const Form = styled.form`
 const InputTitle = styled(TextSize)`
   margin-left: 35px;
   margin-top: 20px;
-`;
-
-const CreateTitle = styled(TextSize)`
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
 `;
 
 const CreateButton = styled(Button)`
@@ -127,57 +123,59 @@ function CreateCard({ onCreate, history }) {
 
   return (
     <>
-      <CreateTitle size="Large">Share your info</CreateTitle>
-      <Form onSubmit={handleSubmit}>
-        <InputTitle size="Medium">Your first name</InputTitle>
-        <Input
-          name="name"
-          placeholder="e.g. Maria"
-          value={formValues.name}
-          onChange={handleChange}
-          error={errors.name}
-        />
-        <InputTitle size="Medium">Description title</InputTitle>
-        <Input
-          name="title"
-          placeholder="e.g. Giving away due to holiday"
-          value={formValues.title}
-          onChange={handleChange}
-          error={errors.title}
-        />
-        <InputTitle size="Medium">Description of food items</InputTitle>
-        <Input
-          name="description"
-          placeholder="e.g. 2 choclate bars, 1 kg strawberries"
-          value={formValues.description}
-          onChange={handleChange}
-          error={errors.description}
-        />
-        <InputTitle size="Medium">Upload image (optional)</InputTitle>
-        <Input
-          type="file"
-          name="image"
-          onChange={upload}
-          placeholder="If no image is uploaded, a stock image will be shown"
-        />
-        <InputTitle size="Medium">Pick-up location</InputTitle>
-        <Input
-          name="location"
-          placeholder="Street, number, postal code, city"
-          value={formValues.location}
-          onChange={handleChange}
-          error={errors.location}
-        />
-        <InputTitle size="Medium">Pick-up time</InputTitle>
-        <Input
-          name="time"
-          placeholder=" Date and time e.g. Tuesday, 31.08 11:00 - 14:00 "
-          value={formValues.time}
-          onChange={handleChange}
-          error={errors.time}
-        />
-        <CreateButton>Submit</CreateButton>
-      </Form>
+      <Header title="Sh" title2="re your info" />
+      <ContentContainer>
+        <Form onSubmit={handleSubmit}>
+          <InputTitle size="Medium">Your first name</InputTitle>
+          <Input
+            name="name"
+            placeholder="e.g. Maria"
+            value={formValues.name}
+            onChange={handleChange}
+            error={errors.name}
+          />
+          <InputTitle size="Medium">Description title</InputTitle>
+          <Input
+            name="title"
+            placeholder="e.g. Giving away due to holiday"
+            value={formValues.title}
+            onChange={handleChange}
+            error={errors.title}
+          />
+          <InputTitle size="Medium">Description of food items</InputTitle>
+          <Input
+            name="description"
+            placeholder="e.g. 2 choclate bars, 1 kg strawberries"
+            value={formValues.description}
+            onChange={handleChange}
+            error={errors.description}
+          />
+          <InputTitle size="Medium">Upload image (optional)</InputTitle>
+          <Input
+            type="file"
+            name="image"
+            onChange={upload}
+            placeholder="If no image is uploaded, a stock image will be shown"
+          />
+          <InputTitle size="Medium">Pick-up location</InputTitle>
+          <Input
+            name="location"
+            placeholder="Street, number, postal code, city"
+            value={formValues.location}
+            onChange={handleChange}
+            error={errors.location}
+          />
+          <InputTitle size="Medium">Pick-up time</InputTitle>
+          <Input
+            name="time"
+            placeholder=" Date and time e.g. Tuesday, 31.08 11:00 - 14:00 "
+            value={formValues.time}
+            onChange={handleChange}
+            error={errors.time}
+          />
+          <CreateButton>Submit</CreateButton>
+        </Form>
+      </ContentContainer>
     </>
   );
 }

@@ -2,7 +2,6 @@ import React from "react";
 import GlobalStyles from "./GlobalStyles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Cards from "../pages/Cards";
-import Header from "../components/Header";
 import CreateCard from "../pages/CreateCard";
 import { getFromLocalStorage, setToLocalStorage } from "../utils/localstorage";
 import Footer from "../components/Footer";
@@ -14,12 +13,8 @@ import mockData from "../pages/__mock__/cards.json";
 const Grid = styled.div`
   display: grid;
   grid-template-rows: 50px auto 50px;
-  width: 100vw;
   height: 100vh;
-`;
-
-const ContentContainer = styled.div`
-  overflow-y: auto;
+  width: 100vw;
 `;
 
 function App() {
@@ -64,37 +59,32 @@ function App() {
     <Router>
       <GlobalStyles />
       <Grid>
-        <Header />
-        <ContentContainer>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route
-              path="/marketplace"
-              render={props => (
-                <Cards
-                  inputData={inputData}
-                  onToggleGet={handleToggleTaken}
-                  onShowTakenItems={handleShowTakenItems}
-                  showTakenItems={showTakenItems}
-                  onDelete={handleDelete}
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path="/share"
-              render={props => (
-                <CreateCard onCreate={handleCreate} {...props} />
-              )}
-            />
-            <Route
-              path="/basket"
-              render={props => (
-                <Basket inputData={inputData} onDelete={handleDelete} />
-              )}
-            />
-          </Switch>
-        </ContentContainer>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route
+            path="/marketplace"
+            render={props => (
+              <Cards
+                inputData={inputData}
+                onToggleGet={handleToggleTaken}
+                onShowTakenItems={handleShowTakenItems}
+                showTakenItems={showTakenItems}
+                onDelete={handleDelete}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            path="/share"
+            render={props => <CreateCard onCreate={handleCreate} {...props} />}
+          />
+          <Route
+            path="/basket"
+            render={props => (
+              <Basket inputData={inputData} onDelete={handleDelete} />
+            )}
+          />
+        </Switch>
         <Footer />
       </Grid>
     </Router>
