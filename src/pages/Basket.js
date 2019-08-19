@@ -16,8 +16,9 @@ const ContainerButton = styled.div`
 
 const StyledHeadline = styled(TextSize)`
   display: flex;
-  margin: 10px 20px 10px 20px;
-  align-items: right;
+  margin: 20px 20px 20px 20px;
+  display: flex;
+  align-items: center;
   justify-content: center;
 `;
 
