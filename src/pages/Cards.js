@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import styled from "styled-components";
 import Header from "../components/Header";
 import { ContentContainer } from "../components/ContentContainer";
+import SearchBar from "../components/SearchBar";
 
 const ContainerButton = styled.div`
   display: flex;
@@ -23,6 +24,12 @@ function Cards({
   onShowTakenItems,
   onDelete
 }) {
+  const [filteredCards, setFilteredCards] = React.useState([]);
+
+  function handleOutput(array) {
+    setFilteredCards(array);
+  }
+
   function renderCard(item) {
     return (
       <>
@@ -42,14 +49,16 @@ function Cards({
     );
   }
 
-  const filteredCards = showTakenItems
-    ? inputData.filter(item => item.taken)
-    : inputData;
+  // const AllCards = showTakenItems
+  //   ? inputData.filter(item => item.taken)
+  //   : inputData;
 
   return (
     <>
       <Header title="Marketpl" title2="ce" />
+
       <ContentContainer>
+        <SearchBar inputData={inputData} searchOutput={handleOutput} />
         {filteredCards.map(item => renderCard(item))}
         <ContainerButton>
           <FilterButton active={showTakenItems} onClick={onShowTakenItems}>
