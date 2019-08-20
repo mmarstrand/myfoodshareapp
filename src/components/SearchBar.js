@@ -6,6 +6,12 @@ import Fuse from "fuse.js";
 const StyledSearch = styled.input`
   height: 30px;
   width: 200px;
+  align-items: center;
+  justify-content: center;
+  ::placeholder {
+    font-size: 12px;
+    color: grey;
+  }
 `;
 
 const StyledSearchBox = styled.div`
