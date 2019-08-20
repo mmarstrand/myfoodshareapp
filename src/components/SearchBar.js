@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Fuse from "fuse.js";
+//import Card from "../components/Card";
 
 const StyledSearch = styled.input`
   height: 30px;
@@ -24,6 +25,7 @@ function SearchBar({ inputData, searchOutput }) {
     const value = event.target.value;
     setSearchInput(value);
   }
+
   const options = {
     shouldSort: true,
     threshold: 0.4,
@@ -38,7 +40,8 @@ function SearchBar({ inputData, searchOutput }) {
   React.useEffect(() => {
     const result = fuse.search(searchInput);
     result.length > 0 ? searchOutput(result) : searchOutput(inputData);
-  }, [searchInput]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchInput, inputData]);
 
   return (
     <>
@@ -50,6 +53,18 @@ function SearchBar({ inputData, searchOutput }) {
           onChange={handleChange}
         />
       </StyledSearchBox>
+      {/* {searchResult.map(item => (
+        <Card
+          id={item._id}
+          name={item.name}
+          title={item.title}
+          description={item.description}
+          location={item.location}
+          time={item.time}
+          image={item.image}
+          taken={item.taken}
+        />
+      ))} */}
     </>
   );
 }

@@ -32,31 +32,28 @@ function Cards({
 
   function renderCard(item) {
     return (
-      <>
-        <Card
-          id={item._id}
-          name={item.name}
-          title={item.title}
-          description={item.description}
-          location={item.location}
-          time={item.time}
-          image={item.image}
-          taken={item.taken}
-          onGet={() => onToggleGet(item._id)}
-          onDelete={() => onDelete(item._id)}
-        />
-      </>
+      <Card
+        id={item._id}
+        name={item.name}
+        title={item.title}
+        description={item.description}
+        location={item.location}
+        time={item.time}
+        image={item.image}
+        taken={item.taken}
+        onGet={() => onToggleGet(item._id)}
+        onDelete={() => onDelete(item._id)}
+      />
     );
   }
 
-  // const AllCards = showTakenItems
-  //   ? inputData.filter(item => item.taken)
-  //   : inputData;
+  const filteredTakenCards = showTakenItems
+    ? inputData.filter(item => item.taken)
+    : inputData;
 
   return (
     <>
       <Header title="Marketpl" title2="ce" />
-
       <ContentContainer>
         <SearchBar inputData={inputData} searchOutput={handleOutput} />
         {filteredCards.map(item => renderCard(item))}
