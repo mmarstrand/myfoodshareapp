@@ -21,13 +21,13 @@ function App() {
   const [inputData, setInputData] = React.useState(
     getFromLocalStorage("inputData") || mockData
   );
-  console.log(inputData, "newState");
 
   React.useEffect(() => setToLocalStorage("inputData", inputData), [inputData]);
 
   const [showTakenItems, setShowTakenItems] = React.useState();
 
   function handleToggleTaken(id) {
+    console.log(id);
     const index = inputData.findIndex(input => input._id === id);
     const input = inputData[index];
 
