@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Fuse from "fuse.js";
-import Card from "../components/Card";
 
 const StyledSearch = styled.input`
   height: 30px;
@@ -17,9 +16,9 @@ const StyledSearchBox = styled.div`
   margin: 35px;
 `;
 
-function SearchBar({ inputData }) {
+function SearchBar({ inputData, searchOutput }) {
   const [searchInput, setSearchInput] = React.useState("");
-  const [searchResult, setSearchResult] = React.useState([]);
+  // const [searchResult, setSearchResult] = React.useState([]);
 
   function handleChange(event) {
     const value = event.target.value;
@@ -38,7 +37,7 @@ function SearchBar({ inputData }) {
 
   React.useEffect(() => {
     const result = fuse.search(searchInput);
-    setSearchResult(result);
+    result.length > 0 ? searchOutput(result) : searchOutput(inputData);
   }, [searchInput]);
 
   return (
@@ -51,18 +50,6 @@ function SearchBar({ inputData }) {
           onChange={handleChange}
         />
       </StyledSearchBox>
-      {searchResult.map(item => (
-        <Card
-          id={item._id}
-          name={item.name}
-          title={item.title}
-          description={item.description}
-          location={item.location}
-          time={item.time}
-          image={item.image}
-          taken={item.taken}
-        />
-      ))}
     </>
   );
 }
