@@ -48,15 +48,15 @@ function Cards({
   }
 
   const filteredTakenCards = showTakenItems
-    ? inputData.filter(item => item.taken)
-    : inputData;
+    ? filteredCards.filter(item => item.taken)
+    : filteredCards;
 
   return (
     <>
       <Header title="Marketpl" title2="ce" />
       <ContentContainer>
         <SearchBar inputData={inputData} searchOutput={handleOutput} />
-        {filteredCards.map(item => renderCard(item))}
+        {filteredTakenCards.map(item => renderCard(item))}
         <ContainerButton>
           <FilterButton active={showTakenItems} onClick={onShowTakenItems}>
             See reserved items
