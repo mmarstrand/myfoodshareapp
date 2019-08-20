@@ -21,7 +21,6 @@ function App() {
   const [inputData, setInputData] = React.useState(
     getFromLocalStorage("inputData") || mockData
   );
-  console.log(inputData, "newState");
 
   React.useEffect(() => setToLocalStorage("inputData", inputData), [inputData]);
 
