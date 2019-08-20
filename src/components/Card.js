@@ -58,7 +58,7 @@ const StyledIconTrashCan = styled.i`
 
 const StyledGetButton = styled(Button)`
   margin-top: 10px;
-  background-color: ${props => (props.active ? "Orange" : "#45eba5")};
+  background-color: ${props => (props.active ? "#ff6600" : "#45eba5")};
 `;
 
 const ButtonDiv = styled.div`
