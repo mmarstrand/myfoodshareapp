@@ -7,11 +7,16 @@ import Header from "../components/Header";
 import { ContentContainer } from "../components/ContentContainer";
 import TextSize from "../components/TextSize";
 
-const StyledBackButton = styled(Button)``;
+const StyledBackButton = styled(Button)`
+  border: white;
+  background: #21aba5
+  height: 50px;
+  color: white;
+`;
 const ContainerButton = styled.div`
   display: flex;
-  align-items: right;
   justify-content: center;
+  margin: 20px;
 `;
 
 const StyledHeadline = styled(TextSize)`
@@ -51,11 +56,12 @@ function Basket({ inputData, onDelete }) {
           Thanks for saving these items!
         </StyledHeadline>
         {ReservedFoodItems.map(item => renderCard(item))}
-        <Link to="/marketplace">
-          <ContainerButton>
-            <StyledBackButton>Back to marketplace</StyledBackButton>
-          </ContainerButton>
-        </Link>
+
+        <ContainerButton>
+          <Link to="/marketplace">
+            <StyledBackButton>Find more items</StyledBackButton>
+          </Link>
+        </ContainerButton>
       </ContentContainer>
     </>
   );

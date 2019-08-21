@@ -8,13 +8,15 @@ import SearchBar from "../components/SearchBar";
 
 const ContainerButton = styled.div`
   display: flex;
-  align-items: right;
   justify-content: center;
+  margin: 20px;
 `;
 
 const FilterButton = styled(Button)`
-  background: orange;
+  border: white;
+  background: #21aba5
   height: 50px;
+  color: white;
 `;
 
 function Cards({
@@ -48,7 +50,7 @@ function Cards({
   }
 
   const filteredTakenCards = showTakenItems
-    ? filteredCards.filter(item => item.taken)
+    ? filteredCards.filter(item => !item.taken)
     : filteredCards;
 
   return (
@@ -59,7 +61,7 @@ function Cards({
         {filteredTakenCards.map(item => renderCard(item))}
         <ContainerButton>
           <FilterButton active={showTakenItems} onClick={onShowTakenItems}>
-            See reserved items
+            {showTakenItems ? "Remove filter" : "Show only available"}
           </FilterButton>
         </ContainerButton>
       </ContentContainer>

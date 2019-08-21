@@ -13,7 +13,7 @@ const StyledBackground = styled.img`
 `;
 
 const StyledHomeButton = styled(Button)`
-  height: 40px;
+  height: 50px;
   font-size: 16px;
 `;
 

@@ -11,7 +11,7 @@
   },
   {
     "_id": 2,
-    "name": "Annika",
+    "name": "Kurt",
     "title": "Apples from the garden",
     "description": ["10 kg apples", "pears", "tomatoes"],
     "location": "Fruchtallee 8a, 20257 Hamburg",
@@ -26,6 +26,15 @@
     "description": ["25 Carlsberg beers", "5 bags of chips"],
     "location": "Partyallee 10, 20257 Hamburg",
     "image": "https://www.liquoroutletwinecellars.com/labels/B00078.jpg",
+    "taken": false,
+    "time": "Tuesday 31.08 17-22"
+  },
+  {
+    "_id": 3,
+    "name": "Annika",
+    "title": "Bought too much at the market",
+    "description": ["Carrots", "Potatoes", "Tomatoes", "Cubumber", "& more"],
+    "location": "Rosenthalerstr. 25, 10117 Berlin",
     "taken": false,
     "time": "Tuesday 31.08 17-22"
   }
