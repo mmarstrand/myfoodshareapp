@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Fuse from "fuse.js";
-//import Card from "../components/Card";
 
 const StyledSearch = styled.input`
   height: 30px;
   width: 200px;
   align-items: center;
   justify-content: center;
+  outline: none;
   ::placeholder {
     font-size: 12px;
     color: grey;
@@ -51,7 +51,7 @@ function SearchBar({ inputData, searchOutput }) {
 
   return (
     <>
-      <StyledSearchBox>
+      <StyledSearchBox size="Medium">
         <i className="fas fa-search" />
         <StyledSearch
           type="text"
@@ -59,18 +59,6 @@ function SearchBar({ inputData, searchOutput }) {
           onChange={handleChange}
         />
       </StyledSearchBox>
-      {/* {searchResult.map(item => (
-        <Card
-          id={item._id}
-          name={item.name}
-          title={item.title}
-          description={item.description}
-          location={item.location}
-          time={item.time}
-          image={item.image}
-          taken={item.taken}
-        />
-      ))} */}
     </>
   );
 }
