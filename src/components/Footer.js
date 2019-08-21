@@ -18,6 +18,7 @@ const StyledFooterIcons = styled.img`
 `;
 
 const StyledFooterBox = styled.div`
+  height: 50px;
   &:hover {
     background-color: #2766a5;
   }
