@@ -61,7 +61,7 @@ function Cards({
         {filteredTakenCards.map(item => renderCard(item))}
         <ContainerButton>
           <FilterButton active={showTakenItems} onClick={onShowTakenItems}>
-            Show only available
+            {showTakenItems ? "Remove filter" : "Show only available"}
           </FilterButton>
         </ContainerButton>
       </ContentContainer>
