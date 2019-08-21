@@ -51,7 +51,7 @@ function SearchBar({ inputData, searchOutput }) {
 
   return (
     <>
-      <StyledSearchBox size="Medium">
+      <StyledSearchBox>
         <i className="fas fa-search" />
         <StyledSearch
           type="text"
