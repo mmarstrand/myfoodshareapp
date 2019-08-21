@@ -9,7 +9,6 @@ const StyledFooter = styled(Link)`
   background-color: #1d566e;
   position: relative;
   bottom: 0px;
-  height: 50px;
 `;
 
 const StyledFooterIcons = styled.img`

@@ -7,7 +7,6 @@ const StyledHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
 `;
 
 const StyledHeadline = styled.h1`
