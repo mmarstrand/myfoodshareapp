@@ -10,7 +10,8 @@
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "webpack": "4.39.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,8 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docz:dev": "docz dev",
-    "docz:build": "docz build",
-    "webpack": "4.39.1"
+    "docz:build": "docz build"
   },
   "eslintConfig": {
     "extends": "react-app"
