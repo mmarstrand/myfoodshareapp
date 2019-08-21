@@ -35,8 +35,8 @@ const StyledDescription = styled.div`
 
 const StyledImage = styled.img`
   align-items: right;
-  width: 120px;
-  max-height: 120px;
+  width: 100px;
+  max-height: 100px;
   display: flex;
   justify-content: flex-end;
   border-radius: 20px;
