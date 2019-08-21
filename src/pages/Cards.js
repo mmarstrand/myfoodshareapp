@@ -14,7 +14,7 @@ const ContainerButton = styled.div`
 
 const FilterButton = styled(Button)`
   border: white;
-  background: #21aba5
+  background: #21aba5;
   height: 50px;
   color: white;
 `;
