@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const StyledFooter = styled(Link)`
+const StyledFooter = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
