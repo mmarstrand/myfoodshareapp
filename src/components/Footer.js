@@ -29,7 +29,6 @@ function Footer() {
         <Link to="/share">
           <StyledFooterIcons src="/sharewhite.svg" />
         </Link>
-
         <Link to="/marketplace">
           <StyledFooterIcons src="/collaborationwhite.svg" />
         </Link>
