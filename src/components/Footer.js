@@ -9,15 +9,11 @@ const StyledFooter = styled(Link)`
   background-color: #1d566e;
   position: relative;
   bottom: 0px;
-  height: 50px;
 `;
 
 const StyledFooterIcons = styled.img`
-  margin: 10px;
   height: 30px;
-`;
-
-const StyledFooterBox = styled.div`
+  padding: 10px 20px;
   &:hover {
     background-color: #2766a5;
   }
@@ -28,25 +24,17 @@ function Footer() {
     <>
       <StyledFooter>
         <Link to="/">
-          <StyledFooterBox>
-            <StyledFooterIcons src="/home2.svg" />
-          </StyledFooterBox>
+          <StyledFooterIcons src="/home2.svg" />
         </Link>
-        <StyledFooterBox>
-          <Link to="/share">
-            <StyledFooterIcons src="/sharewhite.svg" />
-          </Link>
-        </StyledFooterBox>
-        <StyledFooterBox>
-          <Link to="/marketplace">
-            <StyledFooterIcons src="/collaborationwhite.svg" />
-          </Link>
-        </StyledFooterBox>
-        <StyledFooterBox>
-          <Link to="/basket">
-            <StyledFooterIcons src="/basketwhite.svg" />
-          </Link>
-        </StyledFooterBox>
+        <Link to="/share">
+          <StyledFooterIcons src="/sharewhite.svg" />
+        </Link>
+        <Link to="/marketplace">
+          <StyledFooterIcons src="/collaborationwhite.svg" />
+        </Link>
+        <Link to="/basket">
+          <StyledFooterIcons src="/basketwhite.svg" />
+        </Link>
       </StyledFooter>
     </>
   );
