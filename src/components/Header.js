@@ -34,7 +34,7 @@ function Header({ title, title2, ...props }) {
   return (
     <>
       <StyledHeader>
-        <StyledHeadline>
+        <StyledHeadline data-cy="header-title">
           {title}
           <StyledLogo src="/refresh.svg" />
           {title2}
