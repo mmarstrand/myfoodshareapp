@@ -22,6 +22,8 @@ function App() {
     getFromLocalStorage("inputData") || mockData
   );
 
+  console.log(inputData);
+
   React.useEffect(() => setToLocalStorage("inputData", inputData), [inputData]);
 
   const [showTakenItems, setShowTakenItems] = React.useState();
