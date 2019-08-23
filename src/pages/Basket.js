@@ -32,6 +32,7 @@ function Basket({ inputData, onDelete }) {
     return (
       <>
         <Card
+          key={item._id}
           id={item._id}
           name={item.name}
           title={item.title}
