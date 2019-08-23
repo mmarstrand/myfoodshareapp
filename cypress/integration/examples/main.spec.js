@@ -1,5 +1,17 @@
-describe("My First Test", function() {
-  it("Does not do much!", function() {
-    expect(true).to.equal(true);
+describe("FoodShare", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:3000");
+  });
+
+  describe("Cards", () => {
+    it("show the correct browser title", () => {
+      cy.title().should("include", "FoodShare");
+    });
+  });
+
+  describe("CreateCard", () => {
+    it("show the correct browser title", () => {
+      cy.title().should("include", "FoodShare");
+    });
   });
 });
