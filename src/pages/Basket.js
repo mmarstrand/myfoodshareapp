@@ -22,8 +22,6 @@ const ContainerButton = styled.div`
 const StyledHeadline = styled(TextSize)`
   display: flex;
   margin: 20px 20px 20px 20px;
-  display: flex;
-  align-items: center;
   justify-content: center;
 `;
 
@@ -32,6 +30,7 @@ function Basket({ inputData, onDelete }) {
     return (
       <>
         <Card
+          key={item._id}
           id={item._id}
           name={item.name}
           title={item.title}
@@ -56,7 +55,6 @@ function Basket({ inputData, onDelete }) {
           Thanks for saving these items!
         </StyledHeadline>
         {ReservedFoodItems.map(item => renderCard(item))}
-
         <ContainerButton>
           <Link to="/marketplace">
             <StyledBackButton>Find more items</StyledBackButton>
