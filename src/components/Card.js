@@ -91,7 +91,7 @@ function Card({
       </StyledName>
       <StyledCard {...props} active={taken}>
         <StyledTitle>
-          <StyledIcon src="/info.svg" />
+          <StyledIcon src="images/icon_info.svg" alt="info icon" />
           {title}
         </StyledTitle>
         <StyledDescription>
@@ -105,15 +105,18 @@ function Card({
           {image ? (
             <StyledImage src={image} alt="Food image" />
           ) : (
-            <StyledImage src="/vegetables.jpg" alt="Food image" />
+            <StyledImage
+              src="images/imageupload_default_vegetables.jpg"
+              alt="Food image"
+            />
           )}
         </StyledDescription>
         <StyledLocation>
-          <StyledIcon src="/pin.svg" />
+          <StyledIcon src="images/icon_location.svg" alt="location icon" />
           Pick-up location: {location}
         </StyledLocation>
         <StyledTime>
-          <StyledIcon src="/clock.svg" />
+          <StyledIcon src="images/icon_clock.svg" alt="clock icon" />
           Pick-up time: {time}
         </StyledTime>
         <ButtonDiv>

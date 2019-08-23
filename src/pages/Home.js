@@ -35,7 +35,7 @@ function Home() {
     <>
       <Header title="FoodSh" title2="re" />
       <StyledFullscreen>
-        <StyledBackground src="/background.jpg" alt="Food" />
+        <StyledBackground src="images/home_background.jpg" alt="Food" />
         <Link to="/share">
           <StyledHomeButton>Share food</StyledHomeButton>
         </Link>

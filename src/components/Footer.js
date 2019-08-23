@@ -24,16 +24,16 @@ function Footer() {
     <>
       <StyledFooter>
         <Link to="/">
-          <StyledFooterIcons src="/home2.svg" />
+          <StyledFooterIcons src="images/footer_home.svg" />
         </Link>
         <Link to="/share">
-          <StyledFooterIcons src="/sharewhite.svg" />
+          <StyledFooterIcons src="images/footer_shareinfo.svg" />
         </Link>
         <Link to="/marketplace">
-          <StyledFooterIcons src="/collaborationwhite.svg" />
+          <StyledFooterIcons src="images/footer_marketplace.svg" />
         </Link>
         <Link to="/basket">
-          <StyledFooterIcons src="/basketwhite.svg" />
+          <StyledFooterIcons src="images/footer_basket.svg" />
         </Link>
       </StyledFooter>
     </>
