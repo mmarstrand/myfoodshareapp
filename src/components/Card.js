@@ -53,7 +53,6 @@ const StyledIcon = styled.img`
 
 const StyledIconTrashCan = styled.i`
   margin-right: 5px;
-
   align-items: center;
 `;
 
