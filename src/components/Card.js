@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
+import PropTypes from "prop-types";
 
 const StyledCard = styled.div`
   border: 2px solid #163a5f;
@@ -132,5 +133,16 @@ function Card({
     </>
   );
 }
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  description: PropTypes.arrayOf(PropTypes.string),
+  taken: PropTypes.bool,
+  onGet: PropTypes.func,
+  onDelete: PropTypes.func
+};
 
 export default Card;
