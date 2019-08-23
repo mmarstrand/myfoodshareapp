@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import { ContentContainer } from "../components/ContentContainer";
 import SearchBar from "../components/SearchBar";
+import PropTypes from "prop-types";
 
 const ContainerButton = styled.div`
   display: flex;
@@ -35,6 +36,7 @@ function Cards({
   function renderCard(item) {
     return (
       <Card
+        key={item._id}
         id={item._id}
         name={item.name}
         title={item.title}
@@ -68,5 +70,13 @@ function Cards({
     </>
   );
 }
+
+Cards.propTypes = {
+  onClick: PropTypes.func,
+  onToogleGet: PropTypes.func,
+  onDelete: PropTypes.func,
+  showTakenItems: PropTypes.bool,
+  filteredTakenCards: PropTypes.func
+};
 
 export default Cards;

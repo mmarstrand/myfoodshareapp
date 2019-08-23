@@ -125,7 +125,7 @@ function CreateCard({ onCreate, history }) {
     <>
       <Header title="Sh" title2="re your info" />
       <ContentContainer>
-        <Form autocomplete="off" onSubmit={handleSubmit}>
+        <Form autocomplete="off" onSubmit={handleSubmit} data-cy="form-submit">
           <InputTitle size="Medium">Your first name</InputTitle>
           <Input
             name="name"
