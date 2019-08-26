@@ -28,9 +28,8 @@ const StyledHeadline = styled(TextSize)`
 function Basket({ inputData, onDelete }) {
   function renderCard(item) {
     return (
-      <>
+      <div key={item._id}>
         <Card
-          key={item._id}
           id={item._id}
           name={item.name}
           title={item.title}
@@ -41,7 +40,7 @@ function Basket({ inputData, onDelete }) {
           taken={item.taken}
           onDelete={() => onDelete(item._id)}
         />
-      </>
+      </div>
     );
   }
 
