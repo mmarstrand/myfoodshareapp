@@ -79,7 +79,6 @@ function CreateCard({ onCreate, history }) {
       return;
     }
 
-    //const form = event.target;
     const description =
       formValues.description &&
       formValues.description.split(",").map(descItem => descItem.trim());

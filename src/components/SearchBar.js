@@ -25,7 +25,6 @@ const StyledSearchBox = styled.div`
 
 function SearchBar({ inputData, searchOutput }) {
   const [searchInput, setSearchInput] = React.useState("");
-  // const [searchResult, setSearchResult] = React.useState([]);
 
   function handleChange(event) {
     const value = event.target.value;
