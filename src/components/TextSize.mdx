@@ -1,0 +1,28 @@
+---
+name: TextSizes
+menu: Components
+---
+
+import { Props, Playground } from "docz";
+import TextSize from "./TextSize";
+import GlobalStyles from "../app/GlobalStyles";
+
+<GlobalStyles />
+
+# Text sizes
+
+<Props of={TextSize} />
+
+## Basic Usage
+
+<Playground>
+  <TextSize> Text default size (Medium) </TextSize>
+</Playground>
+
+## Sizes
+
+<Playground>
+  <TextSize size="Large"> Large - used for headlines</TextSize>
+  <TextSize size="Medium"> Medium - used for bread text</TextSize>
+  <TextSize size="Small"> Small - used for placeholders</TextSize>
+</Playground>
